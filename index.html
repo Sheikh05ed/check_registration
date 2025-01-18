@@ -4,6 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
     <style>
+      body {
+        background-color: #ffffff; /* Светлый фон */
+        color: #000000; /* Черный текст */
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -19,10 +23,11 @@
         margin-top: 5px;
         padding: 10px;
         background: green;
-        color: white; /* Добавлено для улучшения видимости текста на кнопке */
+        color: white; /* Цвет текста на кнопке */
       }
       #forgot-password {
-        background: blue; /* Измените цвет фона для кнопки "Забыли пароль?" */
+        background: blue; /* Цвет фона для кнопки "Забыли пароль?" */
+        color: white; /* Цвет текста на кнопке */
       }
     </style>
 </head>
@@ -77,7 +82,7 @@
                 return;
 
             }
-            
+
             if (card.length !== 16) {
                 alert('нужен 16-ти значный номер карты.');
                 return;
